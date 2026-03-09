@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 env:
-  DEWEB_CLI_VERSION: 0.6.1
   MNS_DOMAIN: fpom
 
 jobs:
@@ -42,7 +41,7 @@ jobs:
           SECRET_KEY: ${{ secrets.FPOM_MNS_OWNER_PK }}
           CONTRACT_ADDRESS: ${{ secrets.MASSA_WEBSITE_CONTRACT_ADDRESS }}
         run: |
-          npx -y -p tslib -p @massalabs/deweb-cli@${DEWEB_CLI_VERSION} deweb upload ./dist \
+          npx deweb upload ./dist \
             --node_url https://mainnet.massa.net/api/v2 \
             --address "$CONTRACT_ADDRESS" \
             --accept_disclaimer \
