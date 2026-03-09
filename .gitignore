@@ -1,2 +1,15 @@
-dist
-node_modules
+node_modules/
+dist/
+output/
+.venv-imagegen/
+.DS_Store
+tests/playwright/artifacts/
+
+# local working notes
+.ai/
+
+# environment variables
+.env
+
+# website images temp
+website-images-temp/*
