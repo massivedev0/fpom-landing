@@ -16,16 +16,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./config.js"></script>
   </head>
   <body>
     <div class="page-shell">
       <header class="hero surface">
         <div class="hero-copy">
-          <p class="eyebrow">FPOM on Massa</p>
+          <p class="eyebrow">Fake Pepe On Massa</p>
           <h1>Meme culture with live rails on Massa.</h1>
           <p class="lead">
-            FPOM is a community-led meme project with a playable game loop, direct swap access, and active
-            distribution across DeWeb, MNS, and X. The tone is still frog-powered. The surface is much more real.
+            Fake PEPE on Massa (FPOM) is a community-led meme project with a playable game loop, direct swap access,
+            and active distribution across DeWeb, MNS, and X. The tone is still frog-powered. The surface is much more
+            real.
           </p>
           <div class="hero-badges" aria-label="Project highlights">
             <span>Pac-FPOM live</span>
@@ -33,11 +35,11 @@
             <span>DeWeb + MNS ready</span>
           </div>
           <div class="hero-actions">
-            <a class="cta cta-primary" href="https://pac-fpom.deweb.half-red.net" target="_blank" rel="noopener noreferrer">
+            <a class="cta cta-primary" data-link="pacFpomDeweb" target="_blank" rel="noopener noreferrer">
               Play Pac-FPOM
             </a>
-            <a class="cta cta-secondary" href="#buy-fpom">Buy FPOM</a>
-            <a class="cta cta-ghost" href="https://x.com/PepeOnMassaFake" target="_blank" rel="noopener noreferrer">
+            <a class="cta cta-secondary" data-link="buyFpomAnchor">Buy FPOM</a>
+            <a class="cta cta-ghost" data-link="xMain" target="_blank" rel="noopener noreferrer">
               X / Updates
             </a>
           </div>
@@ -92,7 +94,7 @@
             <div class="swap-frame">
               <iframe
                 title="Swap MAS to FPOM on Dusa"
-                src="https://app.dusa.io/widget?fixIn=true&fixOut=true&tokenOut=AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                data-src="dusaWidgetMasToFpom"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
@@ -100,7 +102,7 @@
             <div class="swap-links">
               <a
                 class="simple-link"
-                href="https://app.dusa.io/pools/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib/AS12U4TZfNK7qoLyEERBBRDMu8nm5MKoRzPXDXans4v9wdATZedz9/100/V2"
+                data-link="dusaPool"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -108,7 +110,7 @@
               </a>
               <a
                 class="simple-link"
-                href="https://www.eaglefi.io/token/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                data-link="eagleFiToken"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -116,7 +118,7 @@
               </a>
               <a
                 class="simple-link"
-                href="https://duser-pump.netlify.app/trade/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                data-link="duserPumpTrade"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -156,22 +158,22 @@
               <div class="route-badge">hop in</div>
             </div>
             <div class="link-grid routes-grid">
-              <a class="link-card hot" href="https://pac-fpom.deweb.half-red.net" target="_blank" rel="noopener noreferrer">
+              <a class="link-card hot" data-link="pacFpomDeweb" target="_blank" rel="noopener noreferrer">
                 <span class="link-label">Pac-FPOM DeWeb</span>
                 <span class="link-note">Primary public game route</span>
                 <span class="link-meta">Recommended entry</span>
               </a>
-              <a class="link-card" href="http://pac-fpom.massa" target="_blank" rel="noopener noreferrer">
+              <a class="link-card" data-link="pacFpomMns" target="_blank" rel="noopener noreferrer">
                 <span class="link-label">Pac-FPOM MNS</span>
                 <span class="link-note">Native Massa naming layer</span>
                 <span class="link-meta">Direct `.massa` access</span>
               </a>
-              <a class="link-card" href="https://pac-fpom.deweb.node-master.fr" target="_blank" rel="noopener noreferrer">
+              <a class="link-card" data-link="pacFpomMirror" target="_blank" rel="noopener noreferrer">
                 <span class="link-label">DeWeb Mirror</span>
                 <span class="link-note">Fallback mirror for the game</span>
                 <span class="link-meta">Secondary route</span>
               </a>
-              <a class="link-card" href="https://massivedev0.github.io/pac-fpom/" target="_blank" rel="noopener noreferrer">
+              <a class="link-card" data-link="pacFpomGithub" target="_blank" rel="noopener noreferrer">
                 <span class="link-label">GitHub Pages</span>
                 <span class="link-note">Static mirror for broad access</span>
                 <span class="link-meta">Fast web fallback</span>
@@ -340,10 +342,10 @@
               </p>
             </div>
             <div class="stack">
-              <a class="simple-link" href="https://x.com/PepeOnMassaFake" target="_blank" rel="noopener noreferrer">Main X account</a>
-              <a class="simple-link" href="https://x.com/PepeOnMassaFake/status/1935283435217592782" target="_blank" rel="noopener noreferrer">Intro post</a>
-              <a class="simple-link" href="https://x.com/PepeOnMassaFake/status/1935284341887684740" target="_blank" rel="noopener noreferrer">Summary post</a>
-              <a class="simple-link" href="https://github.com/massivedev0/pac-fpom" target="_blank" rel="noopener noreferrer">Pac-FPOM repo</a>
+              <a class="simple-link" data-link="xMain" target="_blank" rel="noopener noreferrer">Main X account</a>
+              <a class="simple-link" data-link="xIntro" target="_blank" rel="noopener noreferrer">Intro post</a>
+              <a class="simple-link" data-link="xSummary" target="_blank" rel="noopener noreferrer">Summary post</a>
+              <a class="simple-link" data-link="pacFpomRepo" target="_blank" rel="noopener noreferrer">Pac-FPOM repo</a>
             </div>
           </section>
 
@@ -359,7 +361,7 @@
             <div class="token-layout">
               <div class="contract-box">
                 <p class="contract-label">FPOM contract</p>
-                <code>AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib</code>
+                <code data-contract></code>
               </div>
               <div class="token-side">
                 <div class="contract-list">
@@ -370,7 +372,7 @@
                 <div class="stack">
                   <a
                     class="simple-link"
-                    href="https://app.dusa.io/widget?fixIn=true&fixOut=true&tokenOut=AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                    data-link="dusaWidgetMasToFpom"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -378,7 +380,7 @@
                   </a>
                   <a
                     class="simple-link"
-                    href="https://www.eaglefi.io/token/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                    data-link="eagleFiToken"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -401,6 +403,41 @@
 
     <script>
       (() => {
+        const config = window.FPOM_CONFIG;
+
+        if (!config) {
+          return;
+        }
+
+        const { contractAddress, links } = config;
+
+        document.querySelectorAll("[data-link]").forEach((node) => {
+          const key = node.dataset.link;
+          const href = links[key];
+
+          if (!href) {
+            return;
+          }
+
+          node.setAttribute("href", href);
+        });
+
+        document.querySelectorAll("[data-src]").forEach((node) => {
+          const key = node.dataset.src;
+          const src = links[key];
+
+          if (!src) {
+            return;
+          }
+
+          // Force the widget route from config so the embedded pair stays MAS -> FPOM.
+          node.setAttribute("src", src);
+        });
+
+        document.querySelectorAll("[data-contract]").forEach((node) => {
+          node.textContent = contractAddress;
+        });
+
         const gallery = document.querySelector("[data-community]");
 
         if (!gallery) {

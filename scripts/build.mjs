@@ -3,7 +3,7 @@ import { join, resolve } from "node:path";
 
 const root = process.cwd();
 const distDir = resolve(root, "dist");
-const entries = ["index.html", "styles.css", "assets"];
+const entries = ["index.html", "styles.css", "config.js", "assets"];
 
 function folderSizeBytes(dir) {
   let total = 0;

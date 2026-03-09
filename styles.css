@@ -76,6 +76,19 @@ select {
   cursor: url("./assets/fpom/fpom-pointer.svg") 6 4, pointer;
 }
 
+a:hover,
+a:focus-visible,
+a:active,
+button:hover,
+button:focus-visible,
+button:active,
+iframe:hover,
+input:hover,
+textarea:hover,
+select:hover {
+  cursor: url("./assets/fpom/fpom-pointer-active.svg") 8 4, pointer;
+}
+
 a {
   color: inherit;
 }
