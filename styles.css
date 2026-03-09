@@ -86,7 +86,7 @@ iframe:hover,
 input:hover,
 textarea:hover,
 select:hover {
-  cursor: url("./assets/fpom/fpom-pointer-active.svg") 8 4, pointer;
+  cursor: url("./assets/fpom/fpom-logo-pointer.png") 6 4, pointer;
 }
 
 a {

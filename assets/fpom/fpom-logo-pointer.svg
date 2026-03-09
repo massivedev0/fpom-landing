@@ -1,0 +1,11 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M5 4L22 11L15 15L22 28L16 30L9 17L4 22L5 4Z"
+    fill="#ef4f27"
+    stroke="#5e1208"
+    stroke-width="2"
+    stroke-linejoin="round"
+  />
+  <circle cx="14.5" cy="13.5" r="4.2" fill="#fff7ec" stroke="#5e1208" stroke-width="1.2"/>
+  <image href="./fpom-logo-cursor.png" x="10.3" y="9.3" width="8.4" height="8.4"/>
+</svg>
