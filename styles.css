@@ -339,6 +339,40 @@ h3 {
   transform: rotate(-11deg);
 }
 
+.meme-sticker {
+  position: absolute;
+  padding: 8px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 34px rgba(76, 25, 7, 0.16);
+  backdrop-filter: blur(8px);
+  animation: hero-float 5.4s ease-in-out infinite;
+}
+
+.meme-sticker-pepe {
+  width: 164px;
+  top: 48px;
+  right: 168px;
+  transform: rotate(-9deg);
+}
+
+.meme-sticker-doge {
+  width: 124px;
+  left: -8px;
+  bottom: 106px;
+  transform: rotate(-14deg);
+  animation-delay: 0.8s;
+}
+
+.meme-sticker-shiba {
+  width: 144px;
+  right: 112px;
+  bottom: 6px;
+  transform: rotate(11deg);
+  animation-delay: 1.6s;
+}
+
 .hero-stamp,
 .route-badge {
   position: absolute;
@@ -357,7 +391,7 @@ h3 {
 
 .hero-stamp {
   right: 170px;
-  top: 26px;
+  top: -20px;
   transform: rotate(7deg);
 }
 
@@ -728,6 +762,17 @@ h3 {
   }
 }
 
+@keyframes hero-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -815,6 +860,27 @@ h3 {
   .hero-card-bottom {
     right: 8px;
     bottom: 26px;
+  }
+
+  .meme-sticker {
+    width: 96px;
+    padding: 6px;
+    border-radius: 20px;
+  }
+
+  .meme-sticker-pepe {
+    right: 108px;
+    top: 34px;
+  }
+
+  .meme-sticker-doge {
+    left: -2px;
+    bottom: 72px;
+  }
+
+  .meme-sticker-shiba {
+    right: 72px;
+    bottom: 2px;
   }
 
   .hero-stamp {
