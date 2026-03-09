@@ -1,0 +1,24 @@
+{
+  "name": "fpom-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FPOM landing page with server, GitHub Pages, and Massa DeWeb deploys.",
+  "type": "module",
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "node ./scripts/build.mjs",
+    "preview": "python3 -m http.server 4180 -d dist"
+  },
+  "keywords": [
+    "fpom",
+    "landing",
+    "massa",
+    "deweb",
+    "github-pages"
+  ],
+  "author": "massivedev0",
+  "license": "ISC",
+  "dependencies": {
+    "@massalabs/massa-web3": "^5.3.0"
+  }
+}

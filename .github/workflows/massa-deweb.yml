@@ -1,0 +1,62 @@
+name: Massa DeWeb
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+env:
+  DEWEB_CLI_VERSION: 0.6.1
+  MNS_DOMAIN: fpom
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'master'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Validate deployment secrets
+        env:
+          SECRET_KEY: ${{ secrets.FPOM_MNS_OWNER_PK }}
+          CONTRACT_ADDRESS: ${{ secrets.MASSA_WEBSITE_CONTRACT_ADDRESS }}
+        run: |
+          test -n "$SECRET_KEY" || (echo "Missing secret: FPOM_MNS_OWNER_PK" && exit 1)
+          test -n "$CONTRACT_ADDRESS" || (echo "Missing secret: MASSA_WEBSITE_CONTRACT_ADDRESS" && exit 1)
+
+      - name: Upload to Massa DeWeb
+        env:
+          SECRET_KEY: ${{ secrets.FPOM_MNS_OWNER_PK }}
+          CONTRACT_ADDRESS: ${{ secrets.MASSA_WEBSITE_CONTRACT_ADDRESS }}
+        run: |
+          npx -y -p tslib -p @massalabs/deweb-cli@${DEWEB_CLI_VERSION} deweb upload ./dist \
+            --node_url https://mainnet.massa.net/api/v2 \
+            --address "$CONTRACT_ADDRESS" \
+            --accept_disclaimer \
+            --yes
+
+      - name: Update fpom.massa target
+        env:
+          FPOM_MNS_OWNER_PK: ${{ secrets.FPOM_MNS_OWNER_PK }}
+          MASSA_WEBSITE_CONTRACT_ADDRESS: ${{ secrets.MASSA_WEBSITE_CONTRACT_ADDRESS }}
+          MNS_DOMAIN: ${{ env.MNS_DOMAIN }}
+          MASSA_RPC_URL: https://mainnet.massa.net/api/v2
+        run: node ./scripts/update-mns.mjs
+
+      - name: Save artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist
