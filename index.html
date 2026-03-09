@@ -6,108 +6,380 @@
     <title>FPOM | Fake Pepe On Massa</title>
     <meta
       name="description"
-      content="FPOM meme landing page with Pac-FPOM links, trading links, X posts, and the first official route into the fake zone."
+      content="FPOM is a community-led meme project on Massa with live DeWeb routes, a direct MAS-to-FPOM swap widget, and a visual feed from the pond."
     />
     <link rel="icon" type="image/png" href="./assets/fpom/fpom-logo-transparent.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bungee&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="page-shell">
-      <header class="hero">
+      <header class="hero surface">
         <div class="hero-copy">
-          <p class="eyebrow">Fake Pepe On Massa</p>
-          <h1>Serious fake. Fast meme. Zero promises.</h1>
+          <p class="eyebrow">FPOM on Massa</p>
+          <h1>Meme culture with live rails on Massa.</h1>
           <p class="lead">
-            FPOM is a meme token experiment orbiting Pac-FPOM, DeWeb culture, and pure internet nonsense.
-            Play the game, open the trading links, read the posts, and do not confuse any of this with financial advice.
+            FPOM is a community-led meme project with a playable game loop, direct swap access, and active
+            distribution across DeWeb, MNS, and X. The tone is still frog-powered. The surface is much more real.
           </p>
+          <div class="hero-badges" aria-label="Project highlights">
+            <span>Pac-FPOM live</span>
+            <span>MAS to FPOM swap</span>
+            <span>DeWeb + MNS ready</span>
+          </div>
           <div class="hero-actions">
             <a class="cta cta-primary" href="https://pac-fpom.deweb.half-red.net" target="_blank" rel="noopener noreferrer">
               Play Pac-FPOM
             </a>
-            <a class="cta cta-secondary" href="https://x.com/PepeOnMassaFake" target="_blank" rel="noopener noreferrer">
+            <a
+              class="cta cta-secondary"
+              href="https://app.dusa.io/widget?fixIn=true&fixOut=true&tokenIn=AS12U4TZfNK7qoLyEERBBRDMu8nm5MKoRzPXDXans4v9wdATZedz9&tokenOut=AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Swap
+            </a>
+            <a class="cta cta-ghost" href="https://x.com/PepeOnMassaFake" target="_blank" rel="noopener noreferrer">
               X / Updates
             </a>
           </div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <img class="coin-logo" src="./assets/fpom/fpom-logo-transparent.png" alt="" />
-          <img class="meme-sticker meme-sticker-pepe" src="./assets/memes/pepe.png" alt="" />
-          <img class="meme-sticker meme-sticker-doge" src="./assets/memes/doge.png" alt="" />
-          <img class="meme-sticker meme-sticker-shiba" src="./assets/memes/shiba.png" alt="" />
+        <div class="hero-visual">
+          <div class="hero-card hero-card-main">
+            <img src="./assets/community/gala-floor.webp" alt="FPOM character dressed for a formal evening" />
+          </div>
+          <div class="hero-card hero-card-tall hero-card-top">
+            <img src="./assets/community/hero-night-toast.webp" alt="FPOM character raising a glass in a lounge" />
+          </div>
+          <div class="hero-card hero-card-tall hero-card-bottom">
+            <img src="./assets/community/hero-oracle.webp" alt="FPOM character holding a glowing chart like an oracle" />
+          </div>
+          <div class="hero-stamp">frogwire</div>
         </div>
       </header>
 
-      <main class="content-grid">
-        <section class="panel panel-wide">
+      <div class="signal-strip" aria-hidden="true">
+        <div class="signal-track">
+          <span>FPOM SIGNAL</span>
+          <span>MAS TO FPOM</span>
+          <span>DEWEB MIRRORS</span>
+          <span>COMMUNITY BROADCAST</span>
+          <span>PAC-FPOM LIVE</span>
+          <span>FPOM SIGNAL</span>
+          <span>MAS TO FPOM</span>
+          <span>DEWEB MIRRORS</span>
+          <span>COMMUNITY BROADCAST</span>
+          <span>PAC-FPOM LIVE</span>
+        </div>
+      </div>
+
+      <main class="content-stack">
+        <section class="surface panel routes-panel">
           <div class="panel-head">
-            <p class="panel-kicker">Main route</p>
-            <h2>Play and track</h2>
+            <p class="panel-kicker">Network routes</p>
+            <h2>Open the live FPOM surface</h2>
+            <p class="panel-copy">
+              Reach FPOM through the main DeWeb route, native MNS, or static mirrors. The project stays reachable
+              even when one path gets noisy.
+            </p>
           </div>
           <div class="link-grid">
             <a class="link-card hot" href="https://pac-fpom.deweb.half-red.net" target="_blank" rel="noopener noreferrer">
               <span class="link-label">Pac-FPOM DeWeb</span>
-              <span class="link-note">Primary public game link</span>
+              <span class="link-note">Primary public game route</span>
+              <span class="link-meta">Recommended entry</span>
             </a>
             <a class="link-card" href="http://pac-fpom.massa" target="_blank" rel="noopener noreferrer">
               <span class="link-label">Pac-FPOM MNS</span>
-              <span class="link-note">Native Massa name</span>
+              <span class="link-note">Native Massa naming layer</span>
+              <span class="link-meta">Direct `.massa` access</span>
             </a>
             <a class="link-card" href="https://pac-fpom.deweb.node-master.fr" target="_blank" rel="noopener noreferrer">
               <span class="link-label">DeWeb Mirror</span>
-              <span class="link-note">Secondary mirror</span>
+              <span class="link-note">Fallback mirror for the game</span>
+              <span class="link-meta">Secondary route</span>
             </a>
             <a class="link-card" href="https://massivedev0.github.io/pac-fpom/" target="_blank" rel="noopener noreferrer">
               <span class="link-label">GitHub Pages</span>
-              <span class="link-note">Static web mirror</span>
+              <span class="link-note">Static mirror for broad access</span>
+              <span class="link-meta">Fast web fallback</span>
             </a>
           </div>
         </section>
 
-        <section class="panel">
-          <div class="panel-head">
-            <p class="panel-kicker">Trade desk</p>
-            <h2>Liquidity and swaps</h2>
+        <section class="surface panel swap-panel">
+          <div class="panel-head split-head">
+            <div>
+              <p class="panel-kicker">Direct swap</p>
+              <h2>Swap MAS into FPOM without leaving the page</h2>
+              <p class="panel-copy">
+                This embed uses the official Dusa widget with the route fixed to MAS in and FPOM out. If the widget
+                is blocked by a browser policy, the full-page Dusa and EagleFi routes are right below it.
+              </p>
+            </div>
+            <div class="swap-notes">
+              <span>Powered by Dusa</span>
+              <span>MAS preset</span>
+              <span>FPOM locked</span>
+            </div>
           </div>
-          <div class="stack">
-            <a class="simple-link" href="https://app.dusa.io/pools/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib/AS12U4TZfNK7qoLyEERBBRDMu8nm5MKoRzPXDXans4v9wdATZedz9/100/V2" target="_blank" rel="noopener noreferrer">Dusa pool</a>
-            <a class="simple-link" href="https://www.eaglefi.io/token/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib" target="_blank" rel="noopener noreferrer">EagleFi token page</a>
-            <a class="simple-link" href="https://duser-pump.netlify.app/trade/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib" target="_blank" rel="noopener noreferrer">Duser-Pump trade</a>
+          <div class="swap-layout">
+            <div class="swap-frame">
+              <iframe
+                title="Swap MAS to FPOM on Dusa"
+                src="https://app.dusa.io/widget?fixIn=true&fixOut=true&tokenIn=AS12U4TZfNK7qoLyEERBBRDMu8nm5MKoRzPXDXans4v9wdATZedz9&tokenOut=AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="swap-links">
+              <a
+                class="simple-link"
+                href="https://app.dusa.io/widget?fixIn=true&fixOut=true&tokenIn=AS12U4TZfNK7qoLyEERBBRDMu8nm5MKoRzPXDXans4v9wdATZedz9&tokenOut=AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Dusa widget in a new tab
+              </a>
+              <a
+                class="simple-link"
+                href="https://app.dusa.io/pools/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib/AS12U4TZfNK7qoLyEERBBRDMu8nm5MKoRzPXDXans4v9wdATZedz9/100/V2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Dusa liquidity pool
+              </a>
+              <a
+                class="simple-link"
+                href="https://www.eaglefi.io/token/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Check EagleFi token page
+              </a>
+              <a
+                class="simple-link"
+                href="https://duser-pump.netlify.app/trade/AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Duser-Pump route
+              </a>
+            </div>
           </div>
         </section>
 
-        <section class="panel">
-          <div class="panel-head">
-            <p class="panel-kicker">Social</p>
-            <h2>Posts and vibes</h2>
+        <section class="surface panel community-panel" data-community style="--community-bg: url('./assets/community/conference-stage.webp')">
+          <div class="panel-head split-head">
+            <div>
+              <p class="panel-kicker">Community</p>
+              <h2>The pond has receipts</h2>
+              <p class="panel-copy">
+                FPOM already has a visual language. This gallery turns the campaign art into a moving section instead
+                of leaving it buried in temp folders.
+              </p>
+            </div>
+            <div class="community-nav" aria-label="Community gallery controls">
+              <button class="nav-button" type="button" data-slide-prev aria-label="Previous slide">Prev</button>
+              <div class="nav-dots">
+                <button class="nav-dot is-active" type="button" data-slide-to="0" aria-label="Show slide 1"></button>
+                <button class="nav-dot" type="button" data-slide-to="1" aria-label="Show slide 2"></button>
+                <button class="nav-dot" type="button" data-slide-to="2" aria-label="Show slide 3"></button>
+                <button class="nav-dot" type="button" data-slide-to="3" aria-label="Show slide 4"></button>
+                <button class="nav-dot" type="button" data-slide-to="4" aria-label="Show slide 5"></button>
+              </div>
+              <button class="nav-button" type="button" data-slide-next aria-label="Next slide">Next</button>
+            </div>
           </div>
-          <div class="stack">
-            <a class="simple-link" href="https://x.com/PepeOnMassaFake" target="_blank" rel="noopener noreferrer">Main X account</a>
-            <a class="simple-link" href="https://x.com/PepeOnMassaFake/status/1935283435217592782" target="_blank" rel="noopener noreferrer">Intro post</a>
-            <a class="simple-link" href="https://x.com/PepeOnMassaFake/status/1935284341887684740" target="_blank" rel="noopener noreferrer">Summary post</a>
-            <a class="simple-link" href="https://github.com/massivedev0/pac-fpom" target="_blank" rel="noopener noreferrer">Pac-FPOM repo</a>
+
+          <div class="community-stage">
+            <article class="community-slide is-active" data-bg="./assets/community/conference-stage.webp">
+              <div class="community-photo">
+                <img src="./assets/community/conference-stage.webp" alt="FPOM on a conference stage in front of charts" />
+              </div>
+              <div class="community-copy">
+                <p class="slide-tag">Stage signal</p>
+                <h3>From joke energy to broadcast-ready identity</h3>
+                <p>
+                  The brand already reads like a mini media world: live charts, stage moments, and the exact kind of
+                  confidence meme projects need when they stop acting temporary.
+                </p>
+              </div>
+            </article>
+
+            <article class="community-slide" data-bg="./assets/community/talk-show.webp">
+              <div class="community-photo">
+                <img src="./assets/community/talk-show.webp" alt="FPOM character on a talk show set" />
+              </div>
+              <div class="community-copy">
+                <p class="slide-tag">Talk show</p>
+                <h3>Plenty of personality, now framed like a proper campaign</h3>
+                <p>
+                  The layout keeps the meme angle, but the presentation feels more deliberate, more collectible, and
+                  closer to a campaign page than a throwaway token microsite.
+                </p>
+              </div>
+            </article>
+
+            <article class="community-slide" data-bg="./assets/community/beach-trader.webp">
+              <div class="community-photo">
+                <img src="./assets/community/beach-trader.webp" alt="FPOM relaxing on the beach while charts run nearby" />
+              </div>
+              <div class="community-copy">
+                <p class="slide-tag">Beach desk</p>
+                <h3>Internet absurdity, but with a clean presentation layer</h3>
+                <p>
+                  FPOM still has that unserious-in-the-right-way tone. The difference is that the site now treats the
+                  meme assets like branded materials instead of random stickers.
+                </p>
+              </div>
+            </article>
+
+            <article class="community-slide" data-bg="./assets/community/trading-desk.webp">
+              <div class="community-photo">
+                <img src="./assets/community/trading-desk.webp" alt="FPOM at a desk watching a chart head upward" />
+              </div>
+              <div class="community-copy">
+                <p class="slide-tag">Trading desk</p>
+                <h3>Good image inventory should work on the landing, not just on X</h3>
+                <p>
+                  These visuals now support the swap section, social section, and the wider atmosphere of the page
+                  through muted background layers and angled feature frames.
+                </p>
+              </div>
+            </article>
+
+            <article class="community-slide" data-bg="./assets/community/summit-peak.webp">
+              <div class="community-photo">
+                <img src="./assets/community/summit-peak.webp" alt="FPOM character standing on a snowy summit at sunrise" />
+              </div>
+              <div class="community-copy">
+                <p class="slide-tag">Summit mode</p>
+                <h3>Same meme DNA, stronger sense of momentum</h3>
+                <p>
+                  The result is still playful, but it reads like an ecosystem page with a mascot, not like a one-night
+                  landing page chasing a fast cycle.
+                </p>
+              </div>
+            </article>
           </div>
         </section>
 
-        <section class="panel panel-wide ticker-panel">
-          <p class="ticker-label">FPOM contract</p>
-          <code class="ticker-value">AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib</code>
-          <p class="ticker-copy">Meme token. Experimental. Volatile. Entirely your own risk.</p>
-        </section>
+        <div class="info-grid">
+          <section class="surface panel social-panel">
+            <div class="panel-head">
+              <p class="panel-kicker">Signals</p>
+              <h2>Stay close to the feed</h2>
+              <p class="panel-copy">
+                Social posts, launch notes, and the Pac-FPOM repository are grouped here so the site feels like the
+                front door to the project instead of just a list of links.
+              </p>
+            </div>
+            <div class="stack">
+              <a class="simple-link" href="https://x.com/PepeOnMassaFake" target="_blank" rel="noopener noreferrer">Main X account</a>
+              <a class="simple-link" href="https://x.com/PepeOnMassaFake/status/1935283435217592782" target="_blank" rel="noopener noreferrer">Intro post</a>
+              <a class="simple-link" href="https://x.com/PepeOnMassaFake/status/1935284341887684740" target="_blank" rel="noopener noreferrer">Summary post</a>
+              <a class="simple-link" href="https://github.com/massivedev0/pac-fpom" target="_blank" rel="noopener noreferrer">Pac-FPOM repo</a>
+            </div>
+          </section>
+
+          <section class="surface panel contract-panel">
+            <div class="panel-head">
+              <p class="panel-kicker">Token details</p>
+              <h2>Contract and access points</h2>
+              <p class="panel-copy">
+                FPOM remains a meme token and a high-volatility asset. The site should make the route clear without
+                pretending the risk is anything else.
+              </p>
+            </div>
+            <div class="contract-box">
+              <p class="contract-label">FPOM contract</p>
+              <code>AS12GDtiLRQELN8e6cYsCiAGLqdogk59Z9HdhHRsMSueDA8qYyhib</code>
+            </div>
+            <div class="contract-list">
+              <span>Community-led meme project</span>
+              <span>Built around Pac-FPOM and DeWeb presence</span>
+              <span>Swap routes live on Dusa, EagleFi, and Duser-Pump</span>
+            </div>
+          </section>
+        </div>
       </main>
 
       <footer class="footer-note">
         <p>
-          Disclaimer: FPOM is a meme project. Nothing here is investment advice, legal advice, or a promise of anything.
-          Use the links, play the game, trade only if you understand the risks, and assume full responsibility yourself.
+          FPOM is a meme token. Crypto is risky, volatile, and entirely your own responsibility. Nothing on this page
+          is financial, legal, or investment advice.
         </p>
       </footer>
     </div>
+
+    <script>
+      (() => {
+        const gallery = document.querySelector("[data-community]");
+
+        if (!gallery) {
+          return;
+        }
+
+        const slides = Array.from(gallery.querySelectorAll(".community-slide"));
+        const dots = Array.from(gallery.querySelectorAll("[data-slide-to]"));
+        const prevButton = gallery.querySelector("[data-slide-prev]");
+        const nextButton = gallery.querySelector("[data-slide-next]");
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let activeIndex = 0;
+        let timer = null;
+
+        const render = (nextIndex) => {
+          activeIndex = (nextIndex + slides.length) % slides.length;
+          slides.forEach((slide, index) => slide.classList.toggle("is-active", index === activeIndex));
+          dots.forEach((dot, index) => dot.classList.toggle("is-active", index === activeIndex));
+          gallery.style.setProperty("--community-bg", `url("${slides[activeIndex].dataset.bg}")`);
+        };
+
+        const clearRotation = () => {
+          if (timer) {
+            window.clearInterval(timer);
+            timer = null;
+          }
+        };
+
+        const startRotation = () => {
+          if (reduceMotion) {
+            return;
+          }
+
+          clearRotation();
+          timer = window.setInterval(() => render(activeIndex + 1), 4800);
+        };
+
+        prevButton?.addEventListener("click", () => {
+          render(activeIndex - 1);
+          startRotation();
+        });
+
+        nextButton?.addEventListener("click", () => {
+          render(activeIndex + 1);
+          startRotation();
+        });
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            render(index);
+            startRotation();
+          });
+        });
+
+        gallery.addEventListener("mouseenter", clearRotation);
+        gallery.addEventListener("mouseleave", startRotation);
+
+        render(0);
+        startRotation();
+      })();
+    </script>
   </body>
 </html>
