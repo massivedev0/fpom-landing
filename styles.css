@@ -567,20 +567,99 @@ h3 {
 }
 
 .swap-frame {
+  position: relative;
   padding: 16px;
   border-radius: 30px;
+  overflow: hidden;
   background: rgba(255, 248, 239, 0.9);
   border: 1px solid rgba(88, 29, 9, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
+.swap-frame::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  width: 16px;
+  border-radius: 0 20px 20px 0;
+  background: rgba(255, 248, 239, 0.9);
+  pointer-events: none;
+  display: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  z-index: 2;
+}
+
+.swap-frame:has(iframe:not([hidden]))::after {
+  opacity: 1;
+}
+
+.swap-launch {
+  display: grid;
+  gap: 16px;
+  align-content: center;
+  min-height: 520px;
+  padding: clamp(24px, 4vw, 34px);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top left, rgba(55, 177, 255, 0.22), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(0, 214, 255, 0.14), transparent 46%),
+    linear-gradient(180deg, #04183d, #00163c);
+  border: 1px solid rgba(86, 158, 255, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(132, 208, 255, 0.14),
+    0 22px 40px rgba(2, 12, 33, 0.24);
+}
+
+.swap-launch .panel-kicker,
+.swap-launch .panel-copy,
+.swap-launch h3 {
+  margin: 0;
+}
+
+.swap-launch .panel-kicker {
+  color: rgba(132, 207, 255, 0.86);
+}
+
+.swap-launch h3 {
+  color: #f5fbff;
+}
+
+.swap-launch .panel-copy {
+  max-width: 36ch;
+  color: rgba(214, 236, 255, 0.86);
+}
+
+.swap-activate {
+  justify-self: start;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.32);
+}
+
 .swap-frame iframe {
   display: block;
   width: 100%;
+  margin-right: 0;
+  height: 680px;
   min-height: 680px;
   border: 0;
   border-radius: 20px;
   background: #00163c;
+}
+
+.swap-refresh-button {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.swap-refresh-button[hidden],
+.swap-frame iframe[hidden],
+.swap-launch[hidden] {
+  display: none;
 }
 
 .swap-links,
@@ -913,6 +992,21 @@ h3 {
   .swap-links,
   .community-strip {
     grid-template-columns: 1fr;
+  }
+
+  .swap-frame iframe {
+    height: clamp(440px, 54dvh, 520px);
+    min-height: clamp(440px, 54dvh, 520px);
+  }
+
+  .swap-launch {
+    min-height: clamp(320px, 44dvh, 400px);
+    padding: 20px;
+  }
+
+  .swap-frame::after {
+    display: block;
+    width: 20px;
   }
 
   .community-nav {
