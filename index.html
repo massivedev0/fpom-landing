@@ -95,14 +95,33 @@
           </div>
           <div class="swap-layout">
             <div class="swap-frame">
+              <div class="swap-launch" data-swap-launch>
+                <p class="panel-kicker">Wallet access stays opt-in</p>
+                <h3>Load the frog desk</h3>
+                <p class="panel-copy">
+                  On click, your browser may ask for access to Local network and other apps on this device. If you use
+                  Massa Station, allow it.
+                </p>
+                <button class="cta cta-primary swap-activate" type="button" data-swap-activate>
+                  Load swap widget
+                </button>
+              </div>
               <iframe
                 title="Swap MAS to FPOM on Dusa"
                 data-src="dusaWidgetMasToFpom"
+                data-swap-embed
+                allow="local-network-access *; local-network *; loopback-network *"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
+                scrolling="no"
+                hidden
+                aria-hidden="true"
               ></iframe>
             </div>
             <div class="swap-links">
+              <button class="simple-link swap-refresh-button" type="button" data-swap-refresh hidden>
+                Refresh widget after access
+              </button>
               <a
                 class="simple-link"
                 data-link="dusaPool"
@@ -425,17 +444,174 @@
           node.setAttribute("href", href);
         });
 
-        document.querySelectorAll("[data-src]").forEach((node) => {
-          const key = node.dataset.src;
-          const src = links[key];
+        const swapEmbed = document.querySelector("[data-swap-embed]");
+        const swapLaunch = document.querySelector("[data-swap-launch]");
+        const swapActivate = document.querySelector("[data-swap-activate]");
+        const swapRefresh = document.querySelector("[data-swap-refresh]");
 
-          if (!src) {
-            return;
-          }
+        if (swapEmbed) {
+          const swapKey = swapEmbed.dataset.src;
+          const swapSrc = links[swapKey];
+          let swapReloadArmed = false;
+          let swapReloadTimer = null;
+          let lastSwapIntentAt = 0;
+          let swapMounted = false;
+          let currentSwapEmbed = swapEmbed;
+          const permissionStatuses = [];
 
-          // Force the widget route from config so the embedded pair stays MAS -> FPOM.
-          node.setAttribute("src", src);
-        });
+          const hasFreshSwapIntent = () => window.Date.now() - lastSwapIntentAt < 18000;
+
+          const armSwapReload = () => {
+            lastSwapIntentAt = window.Date.now();
+            swapReloadArmed = true;
+          };
+
+          const syncSwapUi = () => {
+            if (swapLaunch) {
+              swapLaunch.hidden = swapMounted;
+            }
+
+            currentSwapEmbed.hidden = !swapMounted;
+            currentSwapEmbed.setAttribute("aria-hidden", String(!swapMounted));
+
+            if (swapRefresh) {
+              swapRefresh.hidden = !swapMounted;
+            }
+          };
+
+          const bindSwapIntent = (node) => {
+            node.addEventListener("pointerdown", armSwapReload, true);
+            node.addEventListener("focus", armSwapReload, true);
+          };
+
+          const mountSwapEmbed = () => {
+            if (swapMounted || !swapSrc) {
+              return;
+            }
+
+            swapMounted = true;
+            currentSwapEmbed.setAttribute("src", swapSrc);
+            bindSwapIntent(currentSwapEmbed);
+            syncSwapUi();
+          };
+
+          const rebuildSwapEmbed = () => {
+            const replacement = currentSwapEmbed.cloneNode(false);
+            replacement.removeAttribute("src");
+            replacement.hidden = false;
+            replacement.setAttribute("aria-hidden", "false");
+            currentSwapEmbed.replaceWith(replacement);
+            currentSwapEmbed = replacement;
+            bindSwapIntent(currentSwapEmbed);
+            return replacement;
+          };
+
+          const refreshSwapEmbed = () => {
+            if (!swapMounted || !swapSrc) {
+              return;
+            }
+
+            const replacement = rebuildSwapEmbed();
+            window.setTimeout(() => {
+              replacement.setAttribute("src", swapSrc);
+            }, 180);
+          };
+
+          const maybeReloadSwapOnReturn = () => {
+            if (!swapReloadArmed || !hasFreshSwapIntent()) {
+              return;
+            }
+
+            swapReloadArmed = false;
+
+            if (swapReloadTimer) {
+              window.clearTimeout(swapReloadTimer);
+            }
+
+            // Dusa does not always re-check Massa Station after the browser grants loopback access.
+            swapReloadTimer = window.setTimeout(refreshSwapEmbed, 900);
+          };
+
+          const queryPermissionStatus = async (name) => {
+            if (!navigator.permissions?.query) {
+              return null;
+            }
+
+            try {
+              return await navigator.permissions.query({ name });
+            } catch {
+              return null;
+            }
+          };
+
+          const attachPermissionWatcher = (status) => {
+            if (!status || permissionStatuses.includes(status)) {
+              return;
+            }
+
+            permissionStatuses.push(status);
+
+            const handlePermissionChange = () => {
+              if (status.state !== "granted") {
+                return;
+              }
+
+              if (!swapMounted) {
+                mountSwapEmbed();
+                return;
+              }
+
+              refreshSwapEmbed();
+            };
+
+            if (typeof status.addEventListener === "function") {
+              status.addEventListener("change", handlePermissionChange);
+              return;
+            }
+
+            status.onchange = handlePermissionChange;
+          };
+
+          const initSwapFromPermission = async () => {
+            const aliasStatus = await queryPermissionStatus("local-network-access");
+            const loopbackStatus = await queryPermissionStatus("loopback-network");
+            const localStatus = await queryPermissionStatus("local-network");
+            const statuses = [aliasStatus, loopbackStatus, localStatus].filter(Boolean);
+
+            statuses.forEach(attachPermissionWatcher);
+
+            const hasGrantedPermission = statuses.some((status) => status.state === "granted");
+
+            if (hasGrantedPermission) {
+              mountSwapEmbed();
+            } else {
+              syncSwapUi();
+            }
+          };
+
+          swapActivate?.addEventListener("click", () => {
+            mountSwapEmbed();
+            armSwapReload();
+          });
+
+          swapRefresh?.addEventListener("click", () => {
+            if (!swapMounted) {
+              mountSwapEmbed();
+              return;
+            }
+
+            refreshSwapEmbed();
+          });
+
+          window.addEventListener("focus", maybeReloadSwapOnReturn);
+          document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+              maybeReloadSwapOnReturn();
+            }
+          });
+
+          initSwapFromPermission();
+        }
 
         document.querySelectorAll("[data-contract]").forEach((node) => {
           node.textContent = contractAddress;
